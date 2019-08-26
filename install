@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+if [ -e /usr/local/bin/remindr ]; then
+  echo "Already installed."
+else
+  echo "#! /usr/bin/env bash
+node ${SCRIPTPATH} \$@" > /usr/local/bin/remindr
+  chmod +x /usr/local/bin/remindr
+  echo "Done!"
+fi
